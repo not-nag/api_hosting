@@ -20,11 +20,6 @@ function assignTicketToPerson(ticketId) {
   return assignee.id;
 }
 
-app.get("/*", (req, res) => {
-  return res
-    .status(204)
-    .send("Make a get request to /tickets routes instead. Thank you.");
-});
 
 
 app.post("/ticket", (req, res) => {
