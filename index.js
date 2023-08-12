@@ -20,6 +20,13 @@ function assignTicketToPerson(ticketId) {
   return assignee.id;
 }
 
+app.get("/*", (req, res) => {
+  return res
+    .status(204)
+    .send("Make a get request to /tickets routes instead. Thank you.");
+});
+
+
 app.post("/ticket", (req, res) => {
   const { user_id, issue } = req.body;
 
@@ -50,6 +57,10 @@ app.post("/ticket", (req, res) => {
       assigned_to: assignedTo,
     },
   });
+});
+
+app.use((req, res) => {
+  res.status(404).send("Make a get request to /tickets routes instead. Thank you.");
 });
 
 const PORT = process.env.PORT || 3000;
